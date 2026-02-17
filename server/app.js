@@ -1,6 +1,5 @@
 import express from "express";
-import complaintsRoutes from './routes/complaintsRoutes.js'
-
+import complaintsRoutes from "./routes/complaintsRoutes.js";
 
 const app = express();
 const port = 8000;
@@ -8,7 +7,7 @@ const port = 8000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send('hello');
+  res.send("hello");
   console.log("pinging root");
 });
 
