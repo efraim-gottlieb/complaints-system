@@ -6,5 +6,12 @@ async function getComplaints() {
   const complaints = await collection.find({}).toArray();
   return complaints;
 }
+async function createComplaint(complaint) {
+  const { category, message } = complaint;
+  const conn = await getMongoDbConnection();
+  const collection = await conn.collection("complaints");
+  const newComplaint = await collection.insertOne({ category, message });
+  return newComplaint;
+}
 
-export default { getComplaints };
+export default { getComplaints, createComplaint };
