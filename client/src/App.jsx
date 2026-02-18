@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router";
+import { Route, Routes, NavLink } from "react-router";
 import HomePage from "./pages/HomePage";
 import SubmitComplaintPage from "./pages/SubmitComplaintPage";
 import SucsessPage from "./pages/SucsessPage";
@@ -10,6 +10,11 @@ import ComplaintsPage from "./pages/ComplaintsPage";
 function App() {
   return (
     <>
+      <nav>
+        <NavLink to="/" className="link">
+          Home
+        </NavLink>
+      </nav>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/complaints">
