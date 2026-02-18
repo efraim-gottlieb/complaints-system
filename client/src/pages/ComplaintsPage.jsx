@@ -39,6 +39,7 @@ function ComplaintsPage() {
               <div className="category">{c.category}</div>
               Message:
               <div className="message">{c.message}</div>
+              <div className="date">{c.createdAt}</div>
           </div>
         )
       })}

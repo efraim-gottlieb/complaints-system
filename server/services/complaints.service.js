@@ -10,7 +10,8 @@ async function createComplaint(complaint) {
   const { category, message } = complaint;
   const conn = await getMongoDbConnection();
   const collection = await conn.collection("complaints");
-  const newComplaint = await collection.insertOne({ category, message });
+  const createdAt = new Date()
+  const newComplaint = await collection.insertOne({ category, message, createdAt });
   return newComplaint;
 }
 
