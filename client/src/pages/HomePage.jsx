@@ -5,12 +5,12 @@ function HomePage() {
   const login = localStorage.getItem('login')
   const loginButton = <button onClick={()=>navigate('admin/login')}>Login</button>
   const logoutButton = <button onClick={()=>{localStorage.clear() ; location.reload()}}>LogOut</button>
+  const complintsButton = <button onClick={()=>navigate('complaints')}>All Complaints</button>
   return (
     <div>
       <div>Home Page</div>
-      <button onClick={()=>navigate('complaints/create')}>Filing a complaint</button>
-      <button onClick={()=>navigate('complaints')}>All Complaints</button>
-      {login ? logoutButton: loginButton}
+      <button onClick={()=>navigate('complaints/create')}>Filing a complaint</button>     
+      {login ? [ complintsButton, logoutButton]: loginButton}
     </div>
   );
 }
