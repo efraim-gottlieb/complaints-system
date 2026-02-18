@@ -6,6 +6,7 @@ function HomePage() {
     <div>
       <div>Home Page</div>
       <button onClick={()=>navigate('complaints/create')}>Filing a complaint</button>
+      <button onClick={()=>navigate('complaints')}>All Complaints</button>
       <button onClick={()=>navigate('admin/login')}>Admin Login</button>
     </div>
   );

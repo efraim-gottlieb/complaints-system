@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 function SubmitComplaintPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const url = "http://localhost:8000/complaints";
   const [complaint, setComplaint] = useState({ category: "", message: "" });
 
@@ -11,14 +11,15 @@ function SubmitComplaintPage() {
   }
 
   async function sendComplaint() {
-    await fetch(url,  {
-      method : 'POST',
+    await fetch(url, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'},
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(complaint),
-    })
-    setComplaint({ category: "", message: "" })
-    navigate('/complaints/success')
+    });
+    setComplaint({ category: "", message: "" });
+    navigate("/complaints/success");
   }
 
   return (
@@ -27,9 +28,21 @@ function SubmitComplaintPage() {
       <div className="form">
         <div className="input-text">
           <label htmlFor="category">Category:</label>
-          <input type="text" id="category" name="category" onChange={handelChange} value={complaint.category}/>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            onChange={handelChange}
+            value={complaint.category}
+          />
           <label htmlFor="message">Message:</label>
-          <textarea type="text" id="message" name="message" onChange={handelChange} value={complaint.message}/>
+          <textarea
+            type="text"
+            id="message"
+            name="message"
+            onChange={handelChange}
+            value={complaint.message}
+          />
         </div>
         <button onClick={sendComplaint}>Submit Complaint</button>
       </div>

@@ -3,11 +3,13 @@ import complaintsRoutes from "./routes/complaintsRoutes.js";
 import cors from "cors";
 import jwt from "jsonwebtoken";
 
+
+
 const app = express();
 const port = 8000;
+
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("hello");
