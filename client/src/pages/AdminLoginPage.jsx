@@ -21,6 +21,7 @@ function AdminLoginsPage() {
       const token = await res.text();
       if (!res.ok) throw new Error(token);
       localStorage.setItem("access_token", token);
+      localStorage.setItem("login", true);
       navigate("/");
     } catch (err) {
       alert('wrong password!')

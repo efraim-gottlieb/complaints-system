@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import { useState } from "react";
 import HomePage from "./pages/HomePage";
 import SubmitComplaintPage from "./pages/SubmitComplaintPage";
 import SucsessPage from "./pages/SucsessPage";
@@ -9,7 +8,6 @@ import ErrorPage from "./pages/ErrorPage";
 import ComplaintsPage from "./pages/ComplaintsPage";
 
 function App() {
-  const [login, setLogin] = useState(false);
   return (
     <>
       <Routes>
