@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 function AdminLoginsPage() {
+        localStorage.setItem("access_token", '000');
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   function handelChange(e) {
@@ -16,7 +17,7 @@ function AdminLoginsPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: { password },
+        body: JSON.stringify(password),
       });
       const token = await res.text();
       if (!res.ok) throw new Error(token);
@@ -24,6 +25,7 @@ function AdminLoginsPage() {
       console.log(localStorage.getItem("access_token"));
     } catch (err) {
       navigate("/admin/unauthorized");
+      console.log(localStorage.getItem("access_token"));
     }
   }
   return (
