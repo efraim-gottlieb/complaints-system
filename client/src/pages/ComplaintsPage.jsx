@@ -30,7 +30,20 @@ function ComplaintsPage() {
   useEffect(() => {
     fetchComplaints();
   }, []);
-  return <div>{JSON.stringify(complaints)}</div>;
+  return (
+    <div>
+      {complaints.map((c)=>{
+        return (
+          <div className="complaint">
+              Category:
+              <div className="category">{c.category}</div>
+              Message:
+              <div className="message">{c.message}</div>
+          </div>
+        )
+      })}
+    </div>
+  );
 }
 
 export default ComplaintsPage;
