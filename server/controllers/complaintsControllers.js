@@ -14,4 +14,5 @@ export async function createComplaint(req, res) {
   const complaint = await complaintsService.createComplaint({category, message});
   res.status(201).json(complaint);
 
+
 }
