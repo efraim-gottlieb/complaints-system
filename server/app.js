@@ -22,18 +22,21 @@ app.use((err, req, res, next) => {
 });
 
 function generateToken(payload) {
-  return jwt.sign(payload, 'pass-secret', { expiresIn: "100h" });
+  return jwt.sign(payload, "secretKey", { expiresIn: "100h" });
 }
 
 app.post("/api/admin/login", (req, res) => {
   const pass = "1234";
   const { password } = req.body;
   if (pass == password) {
-    res.send(generateToken({pass}));
+    res.send(generateToken({ pass }));
   } else {
-    res.status(403);
+    res.status(403).end("Unauthorized");
   }
 });
+
+
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
